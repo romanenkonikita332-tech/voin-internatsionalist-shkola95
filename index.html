@@ -1,0 +1,576 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Память | Афганистан и Чечня</title>
+  <meta name="description" content="Сайт-памяти об участниках локальных войн и военных конфликтов: Афганистан и Чечня." />
+
+  <style>
+    :root{
+      --bg0:#0b120c;
+      --bg1:#131a10;
+      --bg2:#1b2416;
+      --panel:rgba(20, 28, 18, .72);
+      --panel2:rgba(28, 37, 23, .75);
+
+      --text:#eef3e7;
+      --muted:#c7d0bf;
+
+      --khaki:#c7b27b;
+      --olive:#6f7a3c;
+      --leaf:#3f5a32;
+      --sand:#d9c89a;
+      --line:rgba(255,255,255,.12);
+      --shadow:0 18px 55px rgba(0,0,0,.45);
+
+      --radius:20px;
+      --max:1100px;
+    }
+
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
+    body{
+      margin:0;
+      color:var(--text);
+      font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,Arial,"Noto Sans",sans-serif;
+      overflow-x:hidden;
+
+      background:
+        radial-gradient(850px 520px at 12% 10%, rgba(199,178,123,.18), transparent 60%),
+        radial-gradient(780px 520px at 88% 18%, rgba(111,122,60,.16), transparent 62%),
+        radial-gradient(920px 620px at 45% 95%, rgba(63,90,50,.18), transparent 60%),
+        radial-gradient(520px 420px at 70% 60%, rgba(217,200,154,.08), transparent 65%),
+        repeating-linear-gradient(45deg, rgba(255,255,255,.03) 0 1px, transparent 1px 12px),
+        linear-gradient(180deg, var(--bg0), var(--bg1) 55%, var(--bg2));
+    }
+
+    .wrap{ max-width:var(--max); margin:0 auto; padding:28px 18px 70px; }
+
+    header{
+      position:relative;
+      padding:34px 18px;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+
+    header::before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background:
+        radial-gradient(220px 170px at 18% 30%, rgba(199,178,123,.20), transparent 65%),
+        radial-gradient(260px 200px at 42% 60%, rgba(111,122,60,.16), transparent 65%),
+        radial-gradient(230px 180px at 78% 38%, rgba(63,90,50,.18), transparent 68%);
+      pointer-events:none;
+      opacity:.95;
+    }
+
+    header::after{
+      content:"";
+      position:absolute;
+      left:-20%;
+      top:18px;
+      width:140%;
+      height:2px;
+      background:linear-gradient(90deg, transparent, rgba(199,178,123,.85), transparent);
+      opacity:.8;
+      transform:rotate(-2deg);
+      pointer-events:none;
+    }
+
+    .titleRow{
+      position:relative;
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+
+    .brand{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      min-width:260px;
+    }
+
+    .emblem{
+      width:54px; height:54px;
+      border-radius:16px;
+      background:
+        radial-gradient(circle at 35% 30%, var(--sand), var(--khaki)),
+        linear-gradient(135deg, rgba(255,255,255,.18), rgba(255,255,255,0));
+      box-shadow:0 12px 30px rgba(199,178,123,.22);
+      position:relative;
+      border:1px solid rgba(255,255,255,.16);
+      flex:0 0 auto;
+    }
+    .emblem::before{
+      content:"★";
+      position:absolute;
+      inset:0;
+      display:grid;
+      place-items:center;
+      color:#1b2416;
+      font-weight:900;
+      font-size:22px;
+      text-shadow:0 1px 0 rgba(255,255,255,.25);
+    }
+
+    h1{
+      margin:0;
+      font-size:clamp(22px, 3.2vw, 34px);
+      line-height:1.15;
+      letter-spacing:.2px;
+    }
+    .subtitle{
+      margin:8px 0 0;
+      color:var(--muted);
+      max-width:62ch;
+    }
+
+    .chips{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:flex-end;
+      margin-top:6px;
+    }
+    .chip{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      padding:8px 12px;
+      border-radius:999px;
+      color:var(--muted);
+      font-size:13px;
+      white-space:nowrap;
+    }
+    .chip strong{ color:var(--text); font-weight:700; }
+    .chip .dot{
+      display:inline-block;
+      width:7px;height:7px;border-radius:999px;
+      margin-right:8px;
+      background:var(--khaki);
+      box-shadow:0 0 0 3px rgba(199,178,123,.14);
+      vertical-align:middle;
+    }
+
+    main{ margin-top:22px; }
+
+    .section{
+      margin-top:18px;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      background:var(--panel);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .sectionHead{
+      padding:18px 18px 14px;
+      border-bottom:1px solid var(--line);
+      display:flex;
+      flex-wrap:wrap;
+      align-items:baseline;
+      justify-content:space-between;
+      gap:10px;
+      background:linear-gradient(180deg, rgba(255,255,255,.04), transparent);
+    }
+    .sectionTitle{
+      margin:0;
+      font-size:18px;
+      letter-spacing:.3px;
+    }
+
+    .intro{ padding:16px 16px 0; }
+    .introBox{
+      border:1px solid rgba(255,255,255,.12);
+      background:var(--panel2);
+      border-radius:18px;
+      padding:14px 14px;
+      box-shadow:0 14px 40px rgba(0,0,0,.22);
+    }
+    .introTitle{
+      margin:0 0 10px;
+      font-size:16px;
+      letter-spacing:.25px;
+    }
+    .introText{
+      margin:0;
+      opacity:.96;
+      font-size:14px;
+      white-space:pre-wrap;
+    }
+    .introSign{
+      margin-top:10px;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(12, 1fr);
+      gap:14px;
+      padding:16px;
+    }
+
+    .card{
+      grid-column:span 6;
+      border:1px solid var(--line);
+      border-radius:18px;
+      background:linear-gradient(135deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      overflow:hidden;
+      padding:14px;
+      position:relative;
+    }
+
+    .card::before{
+      content:"";
+      position:absolute;
+      left:0; top:0; bottom:0;
+      width:3px;
+      background:linear-gradient(180deg, transparent, rgba(199,178,123,.95), transparent);
+      opacity:.95;
+    }
+
+    .card::after{
+      content:"";
+      position:absolute;
+      inset:-20px;
+      background:
+        radial-gradient(190px 140px at 25% 25%, rgba(111,122,60,.12), transparent 65%),
+        radial-gradient(220px 160px at 70% 45%, rgba(63,90,50,.12), transparent 68%),
+        radial-gradient(200px 160px at 55% 85%, rgba(199,178,123,.10), transparent 70%);
+      pointer-events:none;
+      opacity:.9;
+    }
+
+    .topRow{
+      position:relative;
+      display:flex;
+      gap:14px;
+      min-height:170px;
+    }
+
+    .photo{
+      width:112px;
+      height:142px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.18);
+      background:rgba(255,255,255,.04);
+      object-fit:cover;
+      flex:0 0 auto;
+      box-shadow:0 16px 30px rgba(0,0,0,.28);
+      position:relative;
+      z-index:1;
+      display:block;
+    }
+
+    .meta{ min-width:0; position:relative; z-index:1; }
+    .name{ margin:2px 0 6px; font-size:18px; line-height:1.2; }
+    .line{ margin:0; color:var(--muted); font-size:13px; }
+
+    .badgeRow{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin:10px 0 10px;
+      position:relative; z-index:1;
+    }
+    .badge{
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.04);
+      color:var(--muted);
+    }
+    .badge.khaki{
+      border-color:rgba(199,178,123,.50);
+      background:rgba(199,178,123,.12);
+      color:var(--text);
+    }
+
+    .text{
+      margin:0;
+      opacity:.96;
+      font-size:14px;
+      position:relative; z-index:1;
+    }
+
+    .story{
+      position:relative;
+      z-index:1;
+      margin-top:12px;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background:var(--panel2);
+    }
+    .storyTitle{
+      margin:0 0 8px;
+      font-size:13px;
+      color:var(--muted);
+      letter-spacing:.2px;
+    }
+    .storyText{ margin:0; font-size:14px; white-space:pre-wrap; }
+
+    footer{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:13px;
+      padding:14px 4px 0;
+      opacity:.95;
+    }
+    .divider{
+      height:1px;
+      background:linear-gradient(90deg, transparent, rgba(255,255,255,.16), transparent);
+      margin:14px 0;
+    }
+
+    @media (max-width: 860px){
+      .card{ grid-column:span 12; }
+      .chips{ justify-content:flex-start; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="titleRow">
+        <div class="brand">
+          <div class="emblem" aria-hidden="true"></div>
+          <div>
+            <h1>Память о тех, кто служил и сражался</h1>
+            <p class="subtitle">Афганистан и Чечня — истории людей, долга и мужества. Здесь сохраняются имена, лица и воспоминания.</p>
+          </div>
+        </div>
+
+        <div class="chips" aria-label="Сводка">
+          <div class="chip"><span class="dot"></span><strong id="countAll">0</strong>&nbsp;историй</div>
+          <div class="chip"><strong id="countAfghan">0</strong>&nbsp;Афганистан</div>
+          <div class="chip"><strong id="countChechnya">0</strong>&nbsp;Чечня</div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="section" id="sec-afghan">
+        <div class="sectionHead">
+          <h2 class="sectionTitle">Афганистан</h2>
+        </div>
+
+        <div class="intro">
+          <div class="introBox">
+            <h3 class="introTitle">Советско-афганская война</h3>
+            <p class="introText">Война СССР и Афганистана стала одним из наиболее продолжительных и сложных вооружённых конфликтов в истории позднего Советского Союза. Она оказала значительное влияние как на внутреннее развитие СССР, так и на международные отношения в период холодной войны.
+Предпосылки войны связаны с нестабильной политической ситуацией в Афганистане во второй половине 1970-х годов. В 1978 году в стране произошла Апрельская революция, в результате которой к власти пришла Народно-демократическая партия Афганистана. Новое руководство ориентировалось на социалистическую модель развития и получало поддержку СССР. Однако проводимые реформы — земельные преобразования, ограничение влияния традиционных институтов и религии — вызвали массовое недовольство населения. В стране началась гражданская война, а власть оказалась под угрозой свержения.
+Руководство СССР опасалось утраты влияния в стратегически важном регионе, а также усиления позиций западных стран и радикальных сил у южных границ Советского Союза. В этих условиях в декабре 1979 года было принято решение о вводе советских войск в Афганистан. Официальной целью являлась помощь дружественному правительству и стабилизация обстановки в стране.
+Боевые действия носили затяжной и сложный характер. Советская армия контролировала крупные города, дороги и военные объекты, однако противостояла разрозненным, но мобильным вооружённым отрядам моджахедов, использовавшим партизанскую тактику. Особую трудность представляли горный рельеф, климатические условия и поддержка повстанцев со стороны зарубежных государств. Война не имела чёткой линии фронта и сопровождалась постоянными локальными столкновениями, рейдами и засадами.
+Постепенно становилось ясно, что военное присутствие СССР не приводит к стабилизации страны. Потери среди советских военнослужащих росли, увеличивались экономические затраты, усиливалось недовольство внутри советского общества. В середине 1980-х годов, в условиях политики «перестройки» и изменения внешнеполитического курса, руководство СССР взяло курс на прекращение войны.
+Вывод советских войск из Афганистана начался в 1988 году и был завершён в феврале 1989 года. Формально Советский Союз выполнил свои обязательства, однако гражданская война в Афганистане продолжалась и после ухода советских войск.</p>
+            <div class="introSign">В войне принимали участие следующие выпускники школы № 95</div>
+          </div>
+        </div>
+
+        <div class="grid" id="grid-afghan"></div>
+      </section>
+
+      <section class="section" id="sec-chechnya">
+        <div class="sectionHead">
+          <h2 class="sectionTitle">Чечня</h2>
+        </div>
+
+        <div class="intro">
+          <div class="introBox">
+            <p class="introText">Чеченские войны стали одним из наиболее драматичных в истории России конца XX — начала XXI века. Они были связаны с распадом Советского Союза, кризисом государственной власти и попытками сохранения территориальной целостности Российской Федерации.
+Предпосылки конфликта уходят в начало 1990-х годов. После распада СССР в 1991 году на территории бывшего Советского Союза резко ослаб центральный контроль. В Чечено-Ингушетии к власти пришёл Джохар Дудаев, который провозгласил независимость Чеченской Республики Ичкерия. Российское руководство не признало выход Чечни из состава страны, однако в течение нескольких лет конфликт оставался в основном политическим. В республике постепенно нарастала нестабильность: разрушалась экономика, усиливались вооружённые формирования, росла преступность, происходили захваты заложников.
+Первая Чеченская война (1994–1996) началась в декабре 1994 года, когда федеральные войска были введены в Чечню с целью восстановления конституционного порядка. Боевые действия отличались высокой ожесточённостью, особенно в городах. Штурм Грозного в конце 1994 — начале 1995 года привёл к большим потерям с обеих сторон и значительным разрушениям. Война носила затяжной характер: федеральные силы контролировали основные населённые пункты, но сталкивались с партизанской тактикой чеченских отрядов. В 1996 году конфликт завершился подписанием Хасавюртовских соглашений, которые фактически прекращали боевые действия, но не решали вопрос о статусе Чечни.
+Период между войнами (1996–1999) оказался крайне нестабильным. Чечня формально не была частью правового поля России, но и полноценным независимым государством не стала. Экономика была разрушена, власть слаба, а вооружённые группировки усиливались. На территории республики активно действовали радикальные исламистские формирования, происходили похищения людей, нападения на соседние регионы. В 1999 году боевики вторглись в Дагестан, что стало непосредственным поводом для нового военного вмешательства России.
+Вторая Чеченская война (с 1999 года) началась осенью 1999 года и изначально была объявлена как контртеррористическая операция. В отличие от первой войны, действия федеральных сил были более организованными и сопровождались восстановлением вертикали власти. К 2000 году основные боевые действия завершились, Грозный вновь перешёл под контроль федеральных сил, однако отдельные вооружённые столкновения продолжались ещё несколько лет. В этот период Россия сделала ставку на сотрудничество с лояльной чеченской администрацией.</p>
+            <div class="introSign">В войне принимали участие следующие выпускники школы № 95</div>
+          </div>
+        </div>
+
+        <div class="grid" id="grid-chechnya"></div>
+      </section>
+
+      <footer>
+        <div class="divider"></div>
+        <div></div>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      // Встроенная заглушка (без внешних файлов)
+      var PLACEHOLDER_DATA_URI =
+        "data:image/svg+xml;utf8," +
+        encodeURIComponent(
+          '<svg xmlns="http://www.w3.org/2000/svg" width="560" height="720">' +
+            '<defs>' +
+              '<linearGradient id="g" x1="0" y1="0" x2="1" y2="1">' +
+                '<stop offset="0" stop-color="#2a3623"/>' +
+                '<stop offset="1" stop-color="#11180f"/>' +
+              '</linearGradient>' +
+            '</defs>' +
+            '<rect width="100%" height="100%" fill="url(#g)"/>' +
+            '<circle cx="280" cy="260" r="120" fill="#c7b27b" opacity="0.22"/>' +
+            '<path d="M280 390c-120 0-200 70-220 190h440c-20-120-100-190-220-190z" fill="#c7b27b" opacity="0.18"/>' +
+            '<text x="50%" y="660" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#eef3e7" opacity="0.85">' +
+              'Фото отсутствует' +
+            '</text>' +
+          '</svg>'
+        );
+
+      // ДАННЫЕ (пути лучше делать от корня: /images/...)
+      var PEOPLE = [
+        {
+          conflict: "afghan",
+          name: "Андрей Спартакович Сычев",
+          years: "1962–1985",
+          unit: "Лейтенант, командир развед. взвода",
+          photo: "/images/sychev.jpg",
+          text: "Лейтенант, командир разведывательного взвода. Награждён двумя орденами Красной Звезды (вторым — посмертно).",
+          story:
+            "Родился 5 сентября 1962 г. в г. Луцк Украинской ССР. В Советскую Армию был призван 3 августа 1979 г., окончил Московское высшее общевойсковое командное училище. В Афганистан был командирован в сентябре 1983 г. Награжден двумя орденами Красной Звезды, вторым — посмертно.\n\n" +
+            "9 мая 1985 г. взвод Сычева прочесывал местность в районе населенного пункта Айбак в провинции Саманган. Взвод попал в засаду. Как командир умело руководил взводом, лично вывел из строя нескольких боевиков. В ходе боя одно из отделений подверглось мощному обстрелу, Сычев поспешил туда. По дороге его боевая машина была подбита, а сам он получил смертельное ранение. За этот подвиг был награжден вторым орденом Красной Звезды.\n\n" +
+            "Похоронен на Заельцовском кладбище в Новосибирске."
+        },
+        {
+          conflict: "afghan",
+          name: "Андрей Анатольевич Клепинин",
+          years: "1964–1998",
+          photo: "", // нет фото — покажется заглушка
+          story: ""
+        },
+        {
+          conflict: "chechnya",
+          name: "Андрей Анатольевич Гришин",
+          years: "1980–2001",
+          unit: "Рядовой, водитель-слесарь",
+          photo: "/images/1.jpg",
+          story:
+            "Родился 28 ноября 1980 г. в Новосибирске. Учился в средней школе № 95 (ныне — Экономический лицей), где окончил 8 классов, дальнейшее образование получал в ПТУ №30, сейчас — Новосибирский колледж лёгкой промышленности и сервиса.\n\n" +
+            "В армию был призван в апреле 2000 г., принимал участие в контртеррористических операциях, участник Второй Чеченской войны.\n\n" +
+            "Погиб на боевом посту 10 июля 2001 г.\n" +
+            "Похоронен в Новосибирске."
+        }
+      ];
+
+      function esc(s) {
+        if (s == null) s = "";
+        return String(s).replace(/[&<>"']/g, function (m) {
+          return ({
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#039;"
+          })[m];
+        });
+      }
+
+      function hasText(x) {
+        return x != null && String(x).replace(/^\s+|\s+$/g, "").length > 0;
+      }
+
+      function safePhotoSrc(src) {
+        var v = String(src == null ? "" : src);
+        v = v.replace(/^\s+|\s+$/g, "");
+        return v ? v : PLACEHOLDER_DATA_URI;
+      }
+
+      function cardHTML(p) {
+        var tags = "";
+        if (p.tags && p.tags.length) {
+          for (var i = 0; i < p.tags.length; i++) {
+            var khaki = (i === 0) ? "khaki" : "";
+            tags += '<span class="badge ' + khaki + '">' + esc(p.tags[i]) + '</span>';
+          }
+        }
+
+        var line1 = esc(p.years || "") + (p.place ? " • " + esc(p.place) : "");
+        var unitLine = hasText(p.unit) ? '<p class="line">' + esc(p.unit) + '</p>' : "";
+        var textLine = hasText(p.text) ? '<p class="text">' + esc(p.text) + '</p>' : "";
+
+        var storyBlock = "";
+        if (hasText(p.story)) {
+          storyBlock =
+            '<div class="story">' +
+              '<p class="storyTitle">Текст / воспоминания</p>' +
+              '<p class="storyText">' + esc(p.story) + '</p>' +
+            '</div>';
+        }
+
+        var imgSrc = safePhotoSrc(p.photo);
+
+        return (
+          '<article class="card">' +
+            '<div class="topRow">' +
+              '<img class="photo"' +
+                ' src="' + esc(imgSrc) + '"' +
+                ' alt="Фото: ' + esc(p.name || "Без имени") + '"' +
+                ' loading="lazy"' +
+                ' decoding="async"' +
+                ' referrerpolicy="no-referrer"' +
+                ' onerror="this.onerror=null;this.src=\'' + esc(PLACEHOLDER_DATA_URI) + '\';"' +
+              '/>' +
+              '<div class="meta">' +
+                '<h3 class="name">' + esc(p.name || "Без имени") + '</h3>' +
+                (hasText(line1) ? '<p class="line">' + line1 + '</p>' : "") +
+                unitLine +
+                '<div class="badgeRow">' + tags + '</div>' +
+                textLine +
+              '</div>' +
+            '</div>' +
+            storyBlock +
+          '</article>'
+        );
+      }
+
+      function render() {
+        var af = [];
+        var ch = [];
+
+        for (var i = 0; i < PEOPLE.length; i++) {
+          if (PEOPLE[i].conflict === "afghan") af.push(PEOPLE[i]);
+          if (PEOPLE[i].conflict === "chechnya") ch.push(PEOPLE[i]);
+        }
+
+        var afHTML = "";
+        for (var a = 0; a < af.length; a++) afHTML += cardHTML(af[a]);
+
+        var chHTML = "";
+        for (var c = 0; c < ch.length; c++) chHTML += cardHTML(ch[c]);
+
+        var elAf = document.getElementById("grid-afghan");
+        var elCh = document.getElementById("grid-chechnya");
+        if (elAf) elAf.innerHTML = afHTML;
+        if (elCh) elCh.innerHTML = chHTML;
+
+        var elAll = document.getElementById("countAll");
+        var elAfCount = document.getElementById("countAfghan");
+        var elChCount = document.getElementById("countChechnya");
+
+        if (elAll) elAll.textContent = String(PEOPLE.length);
+        if (elAfCount) elAfCount.textContent = String(af.length);
+        if (elChCount) elChCount.textContent = String(ch.length);
+      }
+
+      // На всякий случай — рендерим после готовности DOM
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", render);
+      } else {
+        render();
+      }
+    })();
+  </script>
+</body>
+</html>
